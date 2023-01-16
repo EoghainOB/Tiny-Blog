@@ -5,7 +5,6 @@ import Historyposts from './components/historyposts';
 import Frenchposts from './components/frenchposts';
 import Englishposts from './components/englshposts';
 import Loveposts from './components/loveposts';
-import Postdetails from './components/postdetails';
 import './App.css';
 
 function App() {
@@ -37,25 +36,24 @@ function App() {
   return (
     <div className="App">
 
-    <form className="form-filter">
-        <label>Filter Tags: </label>
-        <select onChange={handleChange}>
+      <form className="form-filter">
+          <label>Filter Tags: </label>
+          <select onChange={handleChange}>
             <option value="all">All</option>
             <option value="crime">Crime</option>
             <option value="history">History</option>
             <option value="french">French</option>
             <option value="english">English</option>
             <option value="love">Love</option>
-        </select>
-      </form>
-      <>
-      <Crimeposts data={data} />
-      <Historyposts data={data} />
-      <Frenchposts data={data} />
-      <Englishposts data={data} />
-      <Loveposts data={data} />
-      <Postdetails data={data} filter={filter}/>
-      </>
+          </select>
+        </form>
+        <>
+        <Crimeposts data={data} />
+        <Historyposts data={data} />
+        <Frenchposts data={data} />
+        <Englishposts data={data} />
+        <Loveposts data={data} />
+        </>
     </div>
   );
 }

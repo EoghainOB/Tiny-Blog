@@ -1,4 +1,5 @@
 import { postTypes } from '../types'
+import Postdetails from './postdetails'
 
 export interface Props {
     data: postTypes[]
@@ -16,22 +17,15 @@ return (
     {data.data.map(post => {
       if(post.tags.includes('french')) {
         return (
-          <div key={post.id} className='posts'>    
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-            <div className='tags'>
-            <h3><b>Tags:</b></h3> 
-                {post.tags.map(tags => (
-                <div><h4>{tags}</h4></div>
-                ))}
-                </div>
-          </div>
+          <ul key={post.id.toString()} className='posts'>
+          <Postdetails post={post}/>
+          </ul>
           )
         }
       })}
     </>
     </div>
-    )
+  )
 }
 
 export default Frenchposts

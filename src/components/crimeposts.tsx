@@ -1,4 +1,5 @@
 import { postTypes } from '../types'
+import Postdetails from './postdetails'
 
 export interface Props {
     data: postTypes[]
@@ -7,7 +8,7 @@ export interface Props {
 const Crimeposts = (data: Props) => {
 
 return (
-    <div className="postContainer">
+  <div className="postContainer">
     <div className='label'>
         <h1>#Crime</h1>
         <hr/>
@@ -16,22 +17,15 @@ return (
     {data.data.map(post => {
       if(post.tags.includes('crime')) {
         return (
-          <div key={post.id} className='posts'>    
-            <h2>{post.title}</h2>
-            <p>{post.body}</p>
-            <div className='tags'>
-            <h3><b>Tags:</b></h3> 
-                {post.tags.map(tags => (
-                <div><h4>{tags}</h4></div>
-                ))}
-                </div>
-          </div>
+          <ul key={post.id.toString()} className='posts'>
+          <Postdetails post={post}/>
+          </ul>
           )
         }
       })}
     </>
-    </div>
-    )
+  </div>
+  )
 }
 
 export default Crimeposts
