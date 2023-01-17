@@ -2,30 +2,22 @@ import { postTypes } from '../types'
 import Postdetails from './postdetails'
 
 export interface Props {
-    data: postTypes[]
+  item: postTypes,
+  tagFilter: string
 }
 
-const Crimeposts = (data: Props) => {
+const Crimeposts = (item: Props) => {
 
-return (
-  <div className="postContainer">
-    <div className='label'>
-        <h1>#Crime</h1>
-        <hr/>
-    </div>
-    <>
-    {data.data.map(post => {
-      if(post.tags.includes('crime')) {
-        return (
-          <ul key={post.id.toString()} className='posts'>
-          <Postdetails post={post}/>
-          </ul>
-          )
-        }
-      })}
-    </>
-  </div>
-  )
+  const post = item.item
+
+  return (
+      <>
+        <ul key={post.id.toString()} className='posts'>
+        <Postdetails post={post}/>
+        </ul>
+      </>
+    )
+
 }
 
 export default Crimeposts

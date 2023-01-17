@@ -10,7 +10,8 @@ p,
 h1,
 h2,
 h3,
-h4 {
+h4,
+label {
   font-family: 'Maven Pro', sans-serif;
 }
 
@@ -22,6 +23,18 @@ body {
   max-width: max-content;
   margin: auto;
   background: #eee;
+}
+
+header {
+  text-align: center;
+  height: 100px;
+  background-color: black;
+}
+
+header h1 {
+  padding-top: 20px;
+  font-size: 3em;
+  color: aqua;
 }
 
 .App {
@@ -39,6 +52,7 @@ p {
 h1 {
   font-weight: 700;
   margin-bottom: 10px;
+  text-transform: capitalize;
 }
 
 h2 {
@@ -87,4 +101,15 @@ h4 {
 .label {
   margin: 10px;
   width: 100%;
+}
+
+.filter {
+  text-align: center;
+  background-color: #fff;
+  height: 40px;
+  padding-top: 10px;
+}
+
+.filter label {
+  font-weight: bold;
 }

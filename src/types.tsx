@@ -6,3 +6,7 @@ export interface postTypes {
     tags: string[],
     reactions: number,
 }
+
+export interface filterTypes {
+    value: string,
+}
