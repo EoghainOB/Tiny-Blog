@@ -2,7 +2,7 @@
 
 This application has been made using React with Typescript. I uses the https://dummyjson.com/posts API for content and the Unsplash API for photos. The content is initially sorted into 5 groups, which are filtered by tags. The user can further refine what content is displayed using the dropdown at the top of the page which chooses only one group.
 
-<img width="800" alt="Tinyblog" src="https://user-images.githubusercontent.com/110406695/213295839-cb154834-3b47-47ad-a5af-adee60de50aa.png">
+<img width="800" alt="Tinyblog2" src="https://user-images.githubusercontent.com/110406695/213298951-600f92ee-d980-4584-ac3c-b884225f3b92.png">
 
 <i>This project is made using: </i>
 
