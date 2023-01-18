@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import { postTypes } from './types';
-import Posts from './components/posts';
 import Header from './components/header';
 import Filter from './components/filter';
+import Crimeposts from './components/crimeposts';
+import Englishposts from './components/englishposts';
+import Frenchposts from './components/frenchposts';
+import Historyposts from './components/historyposts';
+import Loveposts from './components/loveposts';
 import './App.css';
 
 function App() {
@@ -33,7 +37,13 @@ function App() {
       <Filter setTagFilter={setTagFilter}/>
       <>
       <div className="postContainer">
-      <Posts data={data} tagFilter={tagFilter}/>
+        <>
+        <Crimeposts posts={data} tagFilter={tagFilter}/>
+        <Englishposts posts={data} tagFilter={tagFilter}/>
+        <Frenchposts posts={data} tagFilter={tagFilter}/>
+        <Loveposts posts={data} tagFilter={tagFilter}/>
+        <Historyposts posts={data} tagFilter={tagFilter}/>
+        </>
       </div>
       </>
     </div>

@@ -1,14 +1,13 @@
 type Props = {
-    setTagFilter: React.Dispatch<React.SetStateAction<string>>;
+  setTagFilter: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Filter = (set: Props) => {
+  const handleChange = (e: { preventDefault: () => void; target: any; }) => {
+    set.setTagFilter(e.target.value);
+  };
 
-    const handleChange = (e: { preventDefault: () => void; target: any; }) => {
-        set.setTagFilter(e.target.value);
-        };
-
-return (
+  return (
     <div className='filter'>
         <form className="form-filter">
           <label>Filter Tags: </label>
@@ -22,7 +21,7 @@ return (
           </select>
         </form>
     </div>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;

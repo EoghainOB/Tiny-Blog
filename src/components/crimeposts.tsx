@@ -1,23 +1,50 @@
-import { postTypes } from '../types'
-import Postdetails from './postdetails'
+import { useEffect, useState } from 'react';
+import { postTypes } from '../types';
+import Postdetails from './postdetails';
 
 export interface Props {
-  item: postTypes,
+  posts: postTypes[],
   tagFilter: string
 }
 
-const Crimeposts = (item: Props) => {
+const Crimeposts = (posts: Props) => {
+  const post = posts.posts;
+  const filter = posts.tagFilter;
 
-  const post = item.item
+  const [isShown, setIsShown] = useState(false);
+
+  useEffect(() => {
+    if (filter === 'history' || filter === 'english' || filter === 'french' || filter === 'love') {
+      setIsShown(true);
+    } else if (filter === 'crime' || filter === 'all') {
+      setIsShown(false);
+    }
+  }, [filter]);
 
   return (
-      <>
-        <ul key={post.id.toString()} className='posts'>
-        <Postdetails post={post}/>
-        </ul>
-      </>
-    )
+  <>
+    {!isShown && <div className='label'>
+      <h1># Crime</h1>
+      <hr/>
+    </div>}
+    {post.filter(posts => {
+      if (filter === 'all') {
+        if (posts.tags.some(tags => tags === 'crime')) {
+          return posts;
+        }
+      } else if (filter === 'crime') {
+        if (posts.tags.some(tags => tags === filter)) {
+          return posts;
+        }
+      }
+    }).map(item => (
+      <ul key={item.id.toString()} className='posts'>
+        <Postdetails post={item}/>
+      </ul>
+    ))
+    }
+  </>
+  );
+};
 
-}
-
-export default Crimeposts
+export default Crimeposts;

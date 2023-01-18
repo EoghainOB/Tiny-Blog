@@ -7,16 +7,16 @@ export interface Props {
   tagFilter: string
 }
 
-const Historyposts = (posts: Props) => {
+const Englishposts = (posts: Props) => {
   const post = posts.posts;
   const filter = posts.tagFilter;
 
   const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
-    if (filter === 'crime' || filter === 'english' || filter === 'french' || filter === 'love') {
+    if (filter === 'crime' || filter === 'history' || filter === 'french' || filter === 'love') {
       setIsShown(true);
-    } else if (filter === 'history' || filter === 'all') {
+    } else if (filter === 'english' || filter === 'all') {
       setIsShown(false);
     }
   }, [filter]);
@@ -24,15 +24,15 @@ const Historyposts = (posts: Props) => {
   return (
   <>
     {!isShown && <div className='label'>
-      <h1># History</h1>
+      <h1># English</h1>
       <hr/>
     </div>}
     {post.filter(posts => {
       if (filter === 'all') {
-        if (posts.tags.some(tags => tags === 'history')) {
+        if (posts.tags.some(tags => tags === 'english')) {
           return posts;
         }
-      } else if (filter === 'history') {
+      } else if (filter === 'english') {
         if (posts.tags.some(tags => tags === filter)) {
           return posts;
         }
@@ -47,4 +47,4 @@ const Historyposts = (posts: Props) => {
   );
 };
 
-export default Historyposts;
+export default Englishposts;
