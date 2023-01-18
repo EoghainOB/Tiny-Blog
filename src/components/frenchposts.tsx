@@ -36,7 +36,7 @@ const Frenchposts = (posts: Props) => {
         if (posts.tags.some(tags => tags === filter)) {
           return posts;
         }
-      } return false
+      } return false;
     }).map(item => (
       <ul key={item.id.toString()} className='posts'>
         <Postdetails post={item}/>
