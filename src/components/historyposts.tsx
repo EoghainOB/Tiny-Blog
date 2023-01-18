@@ -24,8 +24,9 @@ const Historyposts = (posts: Props) => {
   return (
   <>
     {!isShown && <div className='label'>
-      <h1># History</h1>
-      <hr/>
+      <div className='tagLabel'>
+        <h1># History</h1>
+      </div>
     </div>}
     {post.filter(posts => {
       if (filter === 'all') {

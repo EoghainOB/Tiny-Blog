@@ -8,6 +8,7 @@ import Frenchposts from './components/frenchposts';
 import Historyposts from './components/historyposts';
 import Loveposts from './components/loveposts';
 import './App.css';
+import Footer from './components/footer';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
         </>
       </div>
       </>
+      <Footer />
     </div>
   );
 }

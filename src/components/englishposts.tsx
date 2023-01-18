@@ -24,8 +24,9 @@ const Englishposts = (posts: Props) => {
   return (
   <>
     {!isShown && <div className='label'>
+    <div className='tagLabel'>
       <h1># English</h1>
-      <hr/>
+      </div>
     </div>}
     {post.filter(posts => {
       if (filter === 'all') {
