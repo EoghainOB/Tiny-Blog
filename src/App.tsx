@@ -44,15 +44,15 @@ function App() {
             }
           } return false
         }
-        )).map((tag, index) => (
+        )).map((tag) => (
           <>
-          <div key={Math.random()} className="postContainer">
+          <div className="postContainer">
           <div className='label'>
             <div className='tagLabel'>
               <h1># {tag}</h1>
             </div>
           </div>
-          <Posts posts={data} tag={tag} key={index} />
+          <Posts posts={data} tag={tag}/>
         </div>
           </>
         ))}

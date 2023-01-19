@@ -5,7 +5,6 @@ import Gallery from './gallery';
 export interface Props {
   posts: postTypes[],
   tag: string,
-  key: number,
 }
 
 const Posts = ({posts, tag}: Props) => {
@@ -18,7 +17,7 @@ const Posts = ({posts, tag}: Props) => {
     } return false;
     }).map((post) => {
       return (
-    <ul key={post.id.toString()} className='posts'>
+    <ul key={post.id} className='posts'>
       <li>
       <Gallery post={post}/>
       <h2>{post.title}</h2>
