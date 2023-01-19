@@ -1,9 +1,11 @@
+import React from 'react';
+
 type Props = {
   setTagFilter: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Filter = (set: Props) => {
-  const handleChange = (e: { preventDefault: () => void; target: any; }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     set.setTagFilter(e.target.value);
   };
 

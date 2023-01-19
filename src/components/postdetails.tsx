@@ -1,3 +1,4 @@
+import React from 'react';
 import { postTypes } from '../types';
 import Gallery from './gallery';
 

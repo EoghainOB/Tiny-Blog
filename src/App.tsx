@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { postTypes } from './types';
 import Header from './components/header';
 import Filter from './components/filter';
