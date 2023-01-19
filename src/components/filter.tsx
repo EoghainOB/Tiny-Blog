@@ -5,6 +5,7 @@ type Props = {
 };
 
 const Filter = (set: Props) => {
+
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     set.setTagFilter(e.target.value);
   };

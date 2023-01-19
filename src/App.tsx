@@ -2,13 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { postTypes } from './types';
 import Header from './components/header';
 import Filter from './components/filter';
-import Crimeposts from './components/crimeposts';
-import Englishposts from './components/englishposts';
-import Frenchposts from './components/frenchposts';
-import Historyposts from './components/historyposts';
-import Loveposts from './components/loveposts';
 import './App.css';
 import Footer from './components/footer';
+import Posts from './components/posts';
 
 function App() {
 
@@ -22,6 +18,8 @@ function App() {
     reactions: 0,
     }
   ])
+  
+  const tags = ['crime', 'english', 'french', 'love', 'history']
 
   useEffect(() => {
     const blogApi = async () => {
@@ -30,23 +28,35 @@ function App() {
     setData(data.posts)
     }
     blogApi()
-  }, [tagFilter])
+  }, [])
 
   return (
     <div className="App">
       <Header />
       <Filter setTagFilter={setTagFilter}/>
-      <>
-      <div className="postContainer">
         <>
-        <Crimeposts posts={data} tagFilter={tagFilter}/>
-        <Englishposts posts={data} tagFilter={tagFilter}/>
-        <Frenchposts posts={data} tagFilter={tagFilter}/>
-        <Loveposts posts={data} tagFilter={tagFilter}/>
-        <Historyposts posts={data} tagFilter={tagFilter}/>
+        {tags.filter((tags => {
+          if(tagFilter === 'all') {
+            return tags
+          } else {
+            if(tagFilter !== 'all') {
+              return tags === tagFilter
+            }
+          } return false
+        }
+        )).map((tag, index) => (
+          <>
+          <div key={Math.random()} className="postContainer">
+          <div className='label'>
+            <div className='tagLabel'>
+              <h1># {tag}</h1>
+            </div>
+          </div>
+          <Posts posts={data} tag={tag} key={index} />
+        </div>
+          </>
+        ))}
         </>
-      </div>
-      </>
       <Footer />
     </div>
   );
