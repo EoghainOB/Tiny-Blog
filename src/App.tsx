@@ -44,9 +44,9 @@ function App() {
             }
           } return false
         }
-        )).map((tag) => (
-          <>
-          <div className="postContainer">
+        )).map((tag, index) => (
+        <div key={index}>
+        <div className="postContainer">
           <div className='label'>
             <div className='tagLabel'>
               <h1># {tag}</h1>
@@ -54,7 +54,7 @@ function App() {
           </div>
           <Posts posts={data} tag={tag}/>
         </div>
-          </>
+          </div>
         ))}
         </>
       <Footer />
